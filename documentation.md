@@ -97,7 +97,35 @@ We used Flake8 for linting our codes. Initially, Flake8 did execute due to the f
 <img width="550" alt="image" src="https://github.com/ubsuny/23-Homework5G4/blob/main/Image/Screenshot%202023-11-14%20at%2012.07.29%20PM.png">
 
 # Unit Testing
+```
+name: Run Tests
 
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install scipy
+
+    - name: Run tests
+      run: pytest test_co2_functions.py
+```
+**Unit Testing Output:**
+<img width="550" alt="image" src="Image/Screenshot 2023-11-15 at 9.14.18 AM.png">
 
 #
 
@@ -105,11 +133,7 @@ We used Flake8 for linting our codes. Initially, Flake8 did execute due to the f
 # Bibliography:
 1. [Wikipedia](https://en.wikipedia.org/wiki/Fast_Fourier_transform)
 2. [Global Monitoring](https://gml.noaa.gov/)
-3. []()
-4. []()
-5. []()
-6. []()
-7. 
+3. [UBSUNY Comphys](https://github.com/ubsuny)
 
 
 
